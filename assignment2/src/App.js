@@ -8,24 +8,34 @@ import CharComponent from './CharComponent/CharComponent';
 class App extends Component {
   state = {
     length : 0,
-    text:"",
+    inputString:"",
     character:''
     
   }
   nameChangedHandler = (event) => {
     this.setState({
       length: event.target.value.length,
-      text:event.target.value
+      inputString:event.target.value
     });
     // console.log(event.target.value);
+  }
+  deleteCharacterHandler = (index) =>{
+    const inputString = {...this.state.inputString};
   }
 
   render() {
 
-    var char = [(this.state.text).split('')]
+    let charValue = null;
 
-    var charList = char.map((character) =>{
-    });
+    if(this.state.length > 0){
+      charValue = (
+        <div>
+          {this.state.inputString.split('').map((character, index) => {
+            return <CharComponent char={character} click={this.deleteCharacterHandler.bind(this, index)}/>
+          })}
+        </div>
+      );
+    }
 
     return (
       <div className="App">
@@ -33,8 +43,8 @@ class App extends Component {
         <AppComp changed = {this.nameChangedHandler } 
         count = {this.state.length }/>
         <ValidatiolnText validation = {this.state.length}/>
-        <CharComponent  char = {this.state.text}/>
-        
+       
+        {charValue}
       </div>
     );
   }

@@ -1,8 +1,7 @@
-.charClass{
-    width:60%;
-    margin:auto;
-    border:1px solid white;
-    box-shadow:0 2px 3px #ccc;
+.charComponent{
+    display: inline-block;
     padding: 16px;
-    text-align:center;
+    text-align: center;
+    margin: 16px;
+    border: 1px solid black;
 }
