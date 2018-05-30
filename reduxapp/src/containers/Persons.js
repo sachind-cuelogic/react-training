@@ -34,6 +34,7 @@ const mapDispatchToProps = dispatch => {
         onAddedPerson: (name, age) => dispatch({type: actionTypes.ADD_PERSON, personData: {name: name, age: age}}),
         onRemovedPerson: (id) => dispatch({type: actionTypes.REMOVE_PERSON, personId: id})
     }
+    console.log("dispatch");
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Persons);
